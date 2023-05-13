@@ -55,11 +55,16 @@ then { ... } else { ... }
 x = y + z + 1
 拆分结果为：
 #3 = #1 + #2
+
 #0 = #3 + 1
+
 而最好不要生成：
 #3 = #1 + #2
+
 #4 = #3 + 1
+
 #0 = #4
+
 更多样例请参考附件中的 samples。
 
 2. 请实现 WhileDB 语言简单编译器的生成基本块的功能。生成的基本块最终存储在数据结构
@@ -84,14 +89,18 @@ else {
 x = 0
 }
 生成的基本块为：
+
 Block 0:
 #0 = read_int()
 if (GT(#0, $(0))) then jmp 1 else jmp 2
+
 Block 1:
 if (GT(#0, $(0))) then jmp 3 else jmp 4
+
 Block 3:
 #0 = MINUS(#0, $(1))
 jmp 1
+
 Block 2:
 #0 = $(0)
 jmp 4
@@ -99,14 +108,19 @@ jmp 4
 Block 0:
 #0 = read_int()
 if (GT(#0, $(0))) then jmp 1 else jmp 2
+
 Block 1:
 jmp 3
+
 Block 3:
 if (GT(#0, $(0))) then jmp 4 else jmp 5
+
 Block 4:
 #0 = MINUS(#0, $(1))
 jmp 3
+
 Block 2:
 #0 = $(0)
 jmp 5
+
 因为其中 1 号基本块是空的无条件跳转基本块。
