@@ -16,7 +16,6 @@ x = read_int();
 y = read_int();
 if ((x + y) * 2 > 24)
 then { ... } else { ... }
-
 对应的拆分结果为：
 
 #0 = read_int()
